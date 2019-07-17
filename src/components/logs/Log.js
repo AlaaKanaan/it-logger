@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import LogItem from './LogItem';
 
 const Log = () => {
 
@@ -24,7 +25,7 @@ const Log = () => {
     }
 
     return (
-        <ul className="collection-with-header">
+        <ul className="collection with-header">
             <li className="collection-header">
                 <h4 className="center">System Logs</h4>
             </li>
@@ -34,7 +35,9 @@ const Log = () => {
                     No Logs to show...
                 </p>
             ) : (
-                logs.map(log => (<li>{log.message}</li>))
+                logs.map(log => (
+                    <LogItem log={log} key={log.id}/>
+                ))
             )}
 
         </ul>
